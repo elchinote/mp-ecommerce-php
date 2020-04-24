@@ -1,3 +1,71 @@
+<?php
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-090914-5c508e1b02a34fcce879a999574cf5c9-469485398');
+// MercadoPago\SDK::setAccessToken('APP_USR-a83913d5-e583-4556-8c19-d2773746b430');
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+
+
+ // ...
+ $payer = new MercadoPago\Payer();
+ $payer->name = "Lalo";
+ $payer->surname = "Landa";
+ $payer->email = "test_user_63274575@testuser.com";
+ $payer->date_created = "2020-04-24T12:58:41.425-04:00";
+ $payer->phone = array(
+   "area_code" => "011",
+   "number" => "22223333"
+ );
+ 
+ $payer->address = array(
+   "street_name" => "Falsa",
+   "street_number" => 123,
+   "zip_code" => "1111"
+ );
+
+ $payer->identification = array(
+    "type" => "DNI",
+    "number" => "22.333.444"
+ );
+
+
+ // ...
+
+ //...
+$preference->back_urls = array(
+    "success" => "https://www.tu-sitio/success",
+    "failure" => "http://www.tu-sitio/failure",
+    "pending" => "http://www.tu-sitio/pending"
+);
+$preference->auto_return = "approved";
+// ...
+
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+
+$item->id=1234;
+$item->title = $_POST['title'];
+$item->description = "Dispositivo móvil de Tienda e-commerce";
+$item->quantity = 1;
+$item->unit_price = $_POST['price'];
+$item->picture_url = "http://64.225.16.49/GiftCertificate/images/logo-header.png";
+// $item->category_id = "Category";
+$item->currency_id = "ARS";
+$preference->items = array($item);
+
+$preference->notification_url = "respuesta.php";
+$preference->external_reference = "ABCD1234";
+$preference->expires = false;
+
+$preference->save();
+
+?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -130,6 +198,7 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
+   
                                     <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
                                 </div>
                             </div>
