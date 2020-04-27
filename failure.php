@@ -135,12 +135,8 @@ $transaction_amount = $jsonResponse->transaction_amount;
                                         
                                         <div style="padding: 30px 0;">
                                                     Operación #<?PHP echo @$CollectionID; ?><br>
-                                                    Nro de Orden #<?PHP echo @$order_id; ?><br>
                                                     Referencia Externa: <?PHP echo @$ExternalReference; ?><br>
-                                                    ID del Pago #<?PHP echo @$payment_id; ?><br>
                                                     Tipo de Pago: <?PHP echo @$PaymentType; ?><br>
-                                                    Forma de Pago: <?PHP echo @$payment_method_id; ?><br>
-                                                    Monto Pagado: <?PHP echo @$transaction_amount; ?><br>
                                                     <br>
 
 
