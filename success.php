@@ -133,21 +133,22 @@ $transaction_amount = $jsonResponse->transaction_amount;
                                             <h3 class="as-producttile-name">
                                                     Su pago ha sido exitoso!
                                                 </h3>
-
-                                                    <p>
-                                                    Operación #<?PHP echo @$CollectionID; ?><br>
-                                                    Nro de Orden #<?PHP echo @$order_id; ?><br>
-                                                    Referencia Externa <?PHP echo @$ExternalReference; ?><br>
-                                                    Tipo de Pago <?PHP echo @$PaymentType; ?><br>
-                                                    Forma de Pago <?PHP echo @$payment_method_id; ?><br>
-                                                    Monto Pagado: <?PHP echo @$transaction_amount; ?><br>
-                                                    Merchant Order #<?PHP echo @$MerchantOrderID; ?>
-
-
-
-                                            </p>
                                         </div>
                                         
+                                        <div style="padding: 30px 0;">
+                                                    Operación #<?PHP echo @$CollectionID; ?><br>
+                                                    Nro de Orden #<?PHP echo @$order_id; ?><br>
+                                                    Referencia Externa: <?PHP echo @$ExternalReference; ?><br>
+                                                    ID del Pago #<?PHP echo @$payment_id; ?><br>
+                                                    Tipo de Pago: <?PHP echo @$PaymentType; ?><br>
+                                                    Forma de Pago: <?PHP echo @$payment_method_id; ?><br>
+                                                    Monto Pagado: <?PHP echo @$transaction_amount; ?><br>
+                                                    <br>
+
+
+                                        <a href="index.php">Volver al Menú</a>
+
+                                            </div>
                                     </div>
    
                                 </div>

@@ -220,14 +220,10 @@ $preference->save();
                                     </div>
    
                                     <form action="procesar-pago.php" method="POST">
-										<script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-header-color="#2D3277"  data-elements-color="#2D3277" data-button-label="Pagar la compra">
-										
-
-                                        </script>
-                                        <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar la compra</button> -->
+										<script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-header-color="#2D3277"  data-elements-color="#2D3277" data-button-label="Pagar la compra"></script>
 									</form>
 
-                                    <!-- <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
+
                                 </div>
                             </div>
                         </div>

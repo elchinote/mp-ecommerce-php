@@ -1,3 +1,32 @@
+<?PHP
+
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+$access_token = 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398';
+
+$payment_id = $_POST["payment_id"];
+
+@$CollectionID=$_GET['collection_id'];
+@$CollectionStatus=$_GET['collection_status'];
+@$PreferenceID=$_GET['preference_id'];
+@$ExternalReference=$_GET['external_reference'];
+@$PaymentType=$_GET['payment_type'];
+@$MerchantOrderID=$_GET['merchant_order_id'];
+
+$cURLConnection = curl_init();
+curl_setopt($cURLConnection, CURLOPT_URL, "https://api.mercadopago.com/v1/payments/$payment_id?access_token=$access_token");
+curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($cURLConnection);
+curl_close($cURLConnection);
+
+$jsonResponse = json_decode($response);
+
+$order_id = $jsonResponse->order->id;
+$payment_method_id = $jsonResponse->payment_method_id;
+$transaction_amount = $jsonResponse->transaction_amount;
+
+?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -105,6 +134,20 @@
                                             </h3>
                                         </div>
                                         
+                                        <div style="padding: 30px 0;">
+                                                    Operación #<?PHP echo @$CollectionID; ?><br>
+                                                    Nro de Orden #<?PHP echo @$order_id; ?><br>
+                                                    Referencia Externa: <?PHP echo @$ExternalReference; ?><br>
+                                                    ID del Pago #<?PHP echo @$payment_id; ?><br>
+                                                    Tipo de Pago: <?PHP echo @$PaymentType; ?><br>
+                                                    Forma de Pago: <?PHP echo @$payment_method_id; ?><br>
+                                                    Monto Pagado: <?PHP echo @$transaction_amount; ?><br>
+                                                    <br>
+
+
+                                        <a href="index.php">Volver al Menú</a>
+
+                                            </div>
                                     </div>
    
                                 </div>
