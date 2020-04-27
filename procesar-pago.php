@@ -11,7 +11,7 @@ function redirect_post($url, array $data)
         </script>
     </head>
     <body onload="cerrar();">
-    <form name="redirectpost" method="post" action="<? echo $url; ?>">
+    <form name="redirectpost" method="post" action="<?PHP echo $url; ?>">
         <?php
         if ( !is_null($data) ) {
             foreach ($data as $k => $v) {
@@ -28,9 +28,3 @@ function redirect_post($url, array $data)
 
 redirect_post($_POST["back_url"], $_POST);
 ?>
-
-
-
-
-
-
