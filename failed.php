@@ -1,4 +1,11 @@
 <?PHP
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+$access_token = 'APP_USR-38157608410175-042418-74797596b8c0a3c8ef4bca4cce234480-469485398';
+$payment_id = $_POST["payment_id"];
+
+echo "PagoID:" . $payment_id;
 
 @$CollectionID=$_GET['collection_id'];
 @$CollectionStatus=$_GET['collection_status'];
