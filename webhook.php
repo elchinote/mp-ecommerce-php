@@ -15,15 +15,17 @@ $datos = [
 ];
   
 
+if($_GET['topic']=="payment" || $_GET['topic'=="merchant_order"]){
+
+    /* Guardo la información en un archivo de registro temporal para auditar los hooks */
+    file_put_contents('webhook.log', json_encode($datos) . PHP_EOL,FILE_APPEND);
+}
+
 switch ($type) {
     case "payment":
         $payment = MercadoPago\Payment::find_by_id($id);
         if (!empty($payment)) {
             header("HTTP/1.1 200 OK");
-
-            /* Guardamos la información en un archivo de registro */
-            file_put_contents('registro.log', json_encode($datos) . PHP_EOL,FILE_APPEND);
-
 
         } else {
             header("HTTP/1.1 400 NOT_OK");

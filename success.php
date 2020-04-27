@@ -27,6 +27,17 @@ $payment_method_id = $jsonResponse->payment_method_id;
 $transaction_amount = $jsonResponse->transaction_amount;
 
 
+/* Creo un registro local TEMPORAL para el entorno de programación y llevar auditoria de las operaciones realizadas */
+$datos = [
+    'collection_id' => $_GET['collection_id'],
+    'collection_status' => $_GET['collection_status'],
+    'preference_id' => $_GET['preference_id'],
+];
+
+/* Guardamos la información en un archivo de registro */
+file_put_contents('registro.log', json_encode($datos) . PHP_EOL,FILE_APPEND);
+
+
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
