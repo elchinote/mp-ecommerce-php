@@ -10,11 +10,6 @@ if ($ERRORES==1){
 }
 
 
-echo "ID: " . $_GET["preapproval_id"];
-
-
-
-
 @$CollectionID=$_GET['collection_id'];
 @$CollectionStatus=$_GET['collection_status'];
 @$PreferenceID=$_GET['preference_id'];
@@ -34,11 +29,10 @@ if ($DEPURACION==1){
 }
 
 //Defino las rutas a redireccionar según el estado
-$RutaPagoPendiente="carrito-pagopendiente.php";
-$RutaPagoRealizado="carrito-pagoconfirmado-confirmacion.php";
-$RutaPagoRealizado="voucher-emision-procesar.php?uid=" . base64_encode($CompraID);
-$RutaPagoEnProceso="carrito-pagoenproceso.php";
-$RutaPagoRechazado="carrito-pagofallido.php";
+$RutaPagoPendiente="pending.php";
+$RutaPagoRealizado="success.php";
+$RutaPagoEnProceso="pending.php";
+$RutaPagoRechazado="failed.php";
 
 
 
@@ -51,17 +45,6 @@ $RutaPagoRechazado="carrito-pagofallido.php";
 // cancelled       -> El pago fue cancelado por una de las partes, o porque el tiempo expiró.
 // refunded        -> El pago fue devuelto al usuario.
 // charged_back    -> Fue hecho un contracargo en la tarjeta del pagador.
-
-//ESTADO DE PAGO - GIFT CERTIFICATE
-//1 - Pendiente
-//2 - Pago Realizado
-//3 - Pago Rechazado
-//4 - Cancelado
-//5 - En Proceso
-//6 - En Mediación
-//7 - Devuelto
-//8 - Contracargo
-
 
 switch($CollectionStatus){
     case "pending": $Destino=$RutaPagoPendiente; break;
