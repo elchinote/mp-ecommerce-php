@@ -14,14 +14,6 @@ $preference = new MercadoPago\Preference();
 
 
 
-$preference->back_urls = array(
-    "success" => "https://www.baris.com.ar/mp-ecommerce-php/success.php",
-    "failure" => "https://www.baris.com.ar/mp-ecommerce-php/failure.php",
-    "pending" => "https://www.baris.com.ar/mp-ecommerce-php/pending.php"
-);
-
-$preference->auto_return = "approved";
-
  $payer = new MercadoPago\Payer();
  $payer->name = "Lalo";
  $payer->surname = "Landa";
@@ -45,6 +37,16 @@ $preference->auto_return = "approved";
 
 $preference->payer=$payer;
 
+
+
+
+$preference->back_urls = array(
+    "success" => "https://www.baris.com.ar/mp-ecommerce-php/success.php",
+    "failure" => "https://www.baris.com.ar/mp-ecommerce-php/failure.php",
+    "pending" => "https://www.baris.com.ar/mp-ecommerce-php/pending.php"
+);
+
+$preference->auto_return = "approved";
 
 
 // Crea un ítem en la preferencia
