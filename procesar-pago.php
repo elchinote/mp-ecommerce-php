@@ -46,6 +46,8 @@ $RutaPagoRechazado="failed.php";
 // refunded        -> El pago fue devuelto al usuario.
 // charged_back    -> Fue hecho un contracargo en la tarjeta del pagador.
 
+echo "Status:" . $CollectionStatus;
+
 switch($CollectionStatus){
     case "pending": $Destino=$RutaPagoPendiente; break;
     case "approved": $Destino=$RutaPagoRealizado; break;

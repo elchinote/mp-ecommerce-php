@@ -27,7 +27,6 @@ $preference->auto_return = "approved";
  $payer->surname = "Landa";
  $payer->email = "test_user_63274575@testuser.com";
 
- $payer->date_created = "2020-04-24T12:58:41.425-04:00";
  $payer->phone = array(
    "area_code" => "011",
    "number" => "22223333"
@@ -48,11 +47,6 @@ $preference->payer=$payer;
 
 
 
-
-
-
-
-
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 
@@ -70,15 +64,6 @@ $preference->items = array($item);
 
 
 
-
-
-// $payment = new MercadoPago\Payment();
-  
-//   $payment->installments = 6;
-// //   $payment->payment_method_id = "visa";
-  
-//   $payment->payer = $payer;
-//   $payment->save(); 
 $preference->payment_methods = array(
     "excluded_payment_methods" => array(
       array("id" => "amex")
@@ -91,17 +76,7 @@ $preference->payment_methods = array(
   
 
 
-  //   echo $payment->status;
-//   echo $payment->status_detail;
-  
-//   echo "\n";
-  
-//   echo "PaymentId: " . $payment->id . "\n";
-
-
-
-
-$preference->notification_url = "respuesta.php";
+$preference->notification_url = "https://www.baris.cloud/mp-ecommerce-php/webhook.php";
 $preference->external_reference = "ABCD1234";
 $preference->expires = false;
 
