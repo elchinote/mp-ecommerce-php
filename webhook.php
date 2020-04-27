@@ -9,7 +9,7 @@ $type = isset($_GET["type"]) ? $_GET["type"] : isset($_POST["type"]) ? $_POST["t
 $id = isset($_GET["id"]) ? $_GET["id"] : isset($_POST["id"]) ? $_POST["id"] : null;
 
 $datos = [
-    'type' =>$_GET['type'],
+    'type' => $_GET['type'],
     'topic' => $_GET['topic'],
     'id' => $_GET['id'],
 ];
