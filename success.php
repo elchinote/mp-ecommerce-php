@@ -1,3 +1,14 @@
+<?PHP
+
+@$CollectionID=$_GET['collection_id'];
+@$CollectionStatus=$_GET['collection_status'];
+@$PreferenceID=$_GET['preference_id'];
+@$ExternalReference=$_GET['external_reference'];
+@$PaymentType=$_GET['payment_type'];
+@$MerchantOrderID=$_GET['merchant_order_id'];
+@$CompraID=$ExternalReference;
+
+?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -101,7 +112,13 @@
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
-                                                    Su pago ha sido exitoso!
+                                                    Su pago ha sido exitoso! <br><br>
+                                                    Operación #<?PHP echo @$CollectionID; ?><br>
+                                                    Referencia Externa <?PHP echo @$ExternalReference; ?><br>
+                                                    Payment Method <?PHP echo @$PaymentType; ?><br>
+                                                    Monto Pagado: <?PHP ?><br>
+                                                    Merchant Order #<?PHP echo @$MerchantOrderID; ?>
+
                                             </h3>
                                         </div>
                                         

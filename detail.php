@@ -15,9 +15,9 @@ $preference = new MercadoPago\Preference();
 
 
 $preference->back_urls = array(
-    "success" => "https://www.baris.com.ar/mp-ecommerce-php/success",
-    "failure" => "https://www.baris.com.ar/mp-ecommerce-php/failure",
-    "pending" => "https://www.baris.com.ar/mp-ecommerce-php/pending"
+    "success" => "https://www.baris.com.ar/mp-ecommerce-php/success.php",
+    "failure" => "https://www.baris.com.ar/mp-ecommerce-php/failure.php",
+    "pending" => "https://www.baris.com.ar/mp-ecommerce-php/pending.php"
 );
 
 $preference->auto_return = "approved";
@@ -76,7 +76,7 @@ $preference->payment_methods = array(
   
 
 
-$preference->notification_url = "https://www.baris.cloud/mp-ecommerce-php/webhook.php";
+$preference->notification_url = "https://www.baris.com.ar/mp-ecommerce-php/webhook.php";
 $preference->external_reference = "ABCD1234";
 $preference->expires = false;
 
